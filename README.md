@@ -1,0 +1,1 @@
+谢谢使用本项目，使用方式    curl -sSL https://raw.githubusercontent.com/wangwang-yuna/WYtools/tools.sh | bash
