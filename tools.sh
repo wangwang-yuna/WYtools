@@ -19,29 +19,38 @@ echo "软件源更新完成！"
 ;;
 2)
 echo "正在安装python环境..."
-sudo apt-get install python3-pip
+sudo apt-get install python3-pip python3-dev -y
+pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 echo "python环境安装完成！"
 ;;
 3)
 echo "正在安装VS code环境..."
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
-sudo apt-get install python3.9
-sudo apt-get install openjdk-11-jdk
-sudo apt-get install code
-echo "VS code环境安装完成！"
+echo "正在下载VS code安装包..."
+wget  https://vscode.download.prss.microsoft.com/dbazure/download/stable/f1a4fb101478ce6ec82fe9627c43efbf9e98c813/code_1.95.3-1731513102_amd64.deb
+sudo apt-get install ./code_1.95.3-1731513102_amd64.deb
+echo "正在安装python3环境..."
+sudo apt-get install python3-pip python3-dev -y
+pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+echo "正在安装JDK21环境..."
+sudo apt-get install ./jdk-21_linux-x64_bin.deb
+echo "安装完成！"
 ;;
 4)
 echo "正在卸载VS code环境..."
 sudo apt-get remove code
-sudo apt-get remove openjdk-11-jdk
-sudo apt-get remove python3.9
+sudo apt-get remove JDK-21
+sudo apt-get remove python3-pip
+sudo apt-get remove python3-dev
 echo "VS code环境卸载完成！"
 ;;
 5)
-echo "欢迎下次使用！"
-exit 0
+安装WYqemu-gui
+echo "正在安装WYqemu-gui..."
+git clone https://github.com/wangyang-yuna/WYqemu-gui.git
+cd WYqemu-gui
+bash ./install.sh
+echo "WYqemu-gui安装完成！"
 ;;
 *)
 echo "输入错误！"
